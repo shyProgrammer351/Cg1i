@@ -1,0 +1,53 @@
+<!DOCTYPE html> <html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../layout.css"> 		<script type="text/javascript" src="../functions.js"></script> 		<script> 			const sP3d10 = [ ["getRockPaperScissors"], [ "(100번지)","100번지","100","(100)"], [ "바위"], [ "getRockPaperScissors"], 							]; 		</script> 	</head> 	<body oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> C 프로그래밍 </div> 			<div id = "navigationBox"><ol><li><a href='../Cf1i/Cf1i1.html'>출력</a></li><li><a href='../Cf2i/Cf2i1.html'>입력</a></li><li><a href='../Cf3i/Cf3i1.html'>변수/연산자</a></li><li><a href='../Cf4i/Cf4i1.html'>선택문(삼항연산자/switch)</a></li><li><a href='../Cf5i/Cf5i1.html'>선택문(if)</a></li><li><a href='../Cf6i/Cf6i1.html'>반복문(while)</a></li><li><a href='../Cf7i/Cf7i1.html'>반복문(for)</a></li><li><a href='../Cf8i/Cf8i1.html'>배열</a></li><li><a href='../Cf9i/Cf9i1.html'>문자열</a></li><li><a href='../Cg0i/Cg0i1.html'>함수</a></li><li><a href='../Cg1i/Cg1i1.html'>포인터</a></li><ul><li><a href='../Cg1i/Cg1i1.html'>포인터 개념</a></li><li><a href='../Cg1i/Cg1i2.html'>캐릭터 이동</a></li><li><a href='../Cg1i/Cg1i3.html'>캐릭터 키우기</a></li><li><a href='../Cg1i/Cg1i4.html'>소문자 대문자 변환</a></li><li><a href='../Cg1i/Cg1i5.html'>가위바위보</a></li><ul><li><a href='Cg1i5.html'>코드읽기</a></li><li><a href='Cg1i5a.html'>알고리즘</a></li><li><a href='Cg1i5k.html'>키워드</a></li><li><a href='Cg1i5b.html'>빈칸채우기</a></li><li><a href='Cg1i5s.html'>실행순서</a></li><li><a href='Cg1i5m.html'>실행상태</a></li><li><a href='https://github.com/CodeReading101/C/blob/main/Chapter11/RockPaperScissors.c' target='code'>소스코드</a></li></ul></ul><li><a href='../Cg2i/Cg2i1.html'>파일입출력</a></li><li><a href='../Cg3i/Cg3i1.html'>열거형/구조체/동적할당</a></li><li><a href='../Cg4i/Cg4i1.html'>함수자료전달</a></li><li><a href='../Cg5i/Cg5i1.html'>전처리기/파일분할</a></li></ol></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>A양과 B군이 가위바위보를 선택하면 승패를 출력하는 문제입니다 이를 해결하는 다음 프로그램의 실행상태를 확인하세요 </pre> 				<pre class='selectable'>A양, 가위, 바위, 보 중 하나를 선택하세요: <b><font color='red'>바위</font></b>
+바위를 냈습니다.
+B군, 가위, 바위, 보 중 하나를 선택하세요: <b><font color='red'>가위</font></b>
+가위를 냈습니다.
+A양이 이겼습니다.
+</pre><br> 	   				<h4>프로그램 코드</h4> 				<pre>	#include &lt;stdio.h&gt; 
+	#include &lt;string.h&gt;
+	
+<a href='javascript:history.back();' name='F1b'>F1b</a>	void getRockPaperScissors( char *player ) {
+		do {
+			printf( "가위, 바위, 보 중 하나를 선택하세요: " );
+			scanf( "%s", player );
+		} while( strcmp( player, "가위" ) && strcmp( player, "바위" ) && strcmp( player, "보" ) );
+										
+		printf( "%s를 냈습니다.\n", player );	
+<a href='javascript:history.back();' name='F1e'>F1e</a>	}
+<a href='javascript:history.back();' name='F2b'>F2b</a>	int DoesPlayerAWin( char *playerA, char *playerB ) {
+		if ( ( !strcmp( playerA, "가위" ) && !strcmp( playerB, "보" ) )
+		     || ( !strcmp( playerA, "바위" ) && !strcmp( playerB, "가위" ) ) 
+		     || ( !strcmp( playerA, "보" ) && !strcmp( playerB, "바위" ) ) )	
+<a href='javascript:history.back();' name='F21'>F21</a>			return 1;
+		else
+<a href='javascript:history.back();' name='F22'>F22</a>			return 0;	
+<a href='javascript:history.back();' name='F2e'>F2e</a>	}
+			
+	
+<a href='javascript:history.back();' name='1'>1</a>	int main() {
+		char playerA[10] = "", playerB[10] = "";								
+	
+		printf( "A양, " );
+<a href='javascript:history.back();' name='2'>2</a>		getRockPaperScissors( playerA );		 
+	
+		printf( "B군, " );
+<a href='javascript:history.back();' name='3'>3</a>		getRockPaperScissors( playerB );	 
+	
+<a href='javascript:history.back();' name='4'>4</a>		if ( !strcmp( playerA, playerB ) ) 
+<a href='javascript:history.back();' name='5'>5</a>			printf( "\nA양과 B군이 비겼습니다.\n" ); 
+<a href='javascript:history.back();' name='6'>6</a>		else if ( DoesPlayerAWin( playerA, playerB ) 
+<a href='javascript:history.back();' name='7'>7</a>		                                             == 1 )
+<a href='javascript:history.back();' name='8'>8</a>			printf( "\nA양이 이겼습니다.\n" ); 
+<a href='javascript:history.back();' name='9'>9</a>		else 
+<a href='javascript:history.back();' name='10'>10</a>			printf( "\nB군이 이겼습니다.\n" ); 
+		
+<a href='javascript:history.back();' name='11'>11</a>		return 0;
+	}
+	</pre> 				<br>
+<h4>17과 19사이의 실행순서(3개) 및 실행상태</h4>
+<pre style='margin:0;padding:0;'><a href='#2'>2</a>  getRockPaperScissors( playerA );   </pre>
+<pre style='background-color:black; color:white; width:807px; margin:0; padding:0;'>A양, </pre><br>
+<pre style='margin:0;padding:0;'><a href='#F1b'>F1b</a> void getRockPaperScissors( char *player ) {</pre> <table style="font-size:10pt; background:Silver; border:0px; border-spacing:0px; margin:0px;padding:0;"> <tbody id="value_table"> <tr></tr> <tr> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; ">main() 함수</td> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; "></td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">playerA</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;"></td> <td style = "margin:0px;padding:0;text-align:left; border:5px solid SkyBlue; background:SkyBlue;">(100번지)</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">playerB</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;"></td> <td style = "margin:0px;padding:0;text-align:left; border:5px solid SkyBlue; background:SkyBlue;">(110번지)</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; "> <input id='blank0' type='text' required minlength='1' maxlength='30' size='20' onchange='sP3f6(0)'>() 함수</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">player</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;"> <input id='blank1' type='text' required minlength='1' maxlength='30' size='20' onchange='sP3f6(1)'> </td></tr> </tbody> </table> <br>
+<pre style='margin:0;padding:0;'><a href='#F1e'>F1e</a> }</pre>
+<pre style='background-color:black; color:white; width:807px; margin:0; padding:0;'>가위, 바위, 보 중 하나를 선택하세요: 바위<br>바위를 냈습니다.<br></pre> <table style="font-size:10pt; background:Silver; border:0px; border-spacing:0px; margin:0px;padding:0;"> <tbody id="value_table"> <tr></tr> <tr> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; ">main() 함수</td> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; "></td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">playerA</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;"> <input id='blank2' type='text' required minlength='1' maxlength='30' size='20' onchange='sP3f6(2)'> </td> <td style = "margin:0px;padding:0;text-align:left; border:5px solid SkyBlue; background:SkyBlue;">(100번지)</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">playerB</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;"></td> <td style = "margin:0px;padding:0;text-align:left; border:5px solid SkyBlue; background:SkyBlue;">(110번지)</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:left; border:0px solid Silver; background:Silver; "> <input id='blank3' type='text' required minlength='1' maxlength='30' size='20' onchange='sP3f6(3)'>() 함수</td></tr> <tr> <td style = "margin:0px;padding:0;text-align:right; border:5px solid SkyBlue; background:SkyBlue;">player</td> <td style = "margin:0px;padding:0;text-align:center; border:5px solid SkyBlue; background:Silver;">(100번지)</td></tr> </tbody> </table> <br>
+<table border='1'></table> 			</div> 		</div> 	</body> </html> 
